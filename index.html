@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación a la Boda</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        #video-fondo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #redirect-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            display: none;
+        }
+
+        a {
+            color: white;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="video-container">
+        <video id="video-fondo" poster="https://drive.google.com/uc?export=download&id=1cuMufeMeiyDkHraQXU2gS710yPyX96Hu" controls>
+            <source src="https://drive.google.com/uc?export=download&id=1cuMufeMeiyDkHraQXU2gS710yPyX96Hu" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+        <div id="redirect-overlay">
+            <p>¡Te invitamos a nuestra boda!</p>
+            <p>Haz clic en <a onclick="redirect()">este enlace</a> para visitar nuestro sitio web.</p>
+        </div>
+    </div>
+
+    <script>
+        var video = document.getElementById('video-fondo');
+        var redirectOverlay = document.getElementById('redirect-overlay');
+
+        // Mostrar el overlay al finalizar el video
+        video.addEventListener('ended', function() {
+            showRedirectOverlay();
+        });
+
+        function showRedirectOverlay() {
+            redirectOverlay.style.display = 'flex';
+        }
+
+        function redirect() {
+            window.location.href = "https://www.zola.com/wedding/valeriaandjoseluis";
+        }
+    </script>
+</body>
+</html>
